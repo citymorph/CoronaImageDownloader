@@ -110,13 +110,13 @@ id:set(db, "http://citybusvz.comze.com/corona/imageDownloader.php", onAllResourc
 
 -- Use reset to delete all resources and start downloading again
 -- If you remove this line, resources will be downloaded only once, untill they all download sucessfully
---id:reset()
+id:reset()
 
 -- Start downloading images
 id:downloadImages()
 ```
 
-##Properties and defaults##
+##Properties##
 
 You can easily change any of id (image downloader) table / object properties. List of currenly used properties:
 
@@ -130,11 +130,13 @@ id.tableName = "image_downloader_params"
 -- Title of an alert shown when resources info cannot be retrieved
 id.errorConnectingTitle = "Error connecting to server"
 -- Message of an alert shown when resources info cannot be retrieved
-id.errorConnectingMessage = "Cannot connect to resources server. Please check your internet connection and try again later."
+id.errorConnectingMessage = "Cannot connect to resources server. " ..
+							"Please check your internet connection and try again later."
 -- Title of an alert shown when image download fails
 id.errorDownloadingTitle = "Error downloading resources"
 -- Message of an alert shown when image download fails
-id.errorDownloadingMessage = "Failed to download resources from server. Please check your internet connection and try again later."
+id.errorDownloadingMessage = "Failed to download resources from server. " .. 
+							 "Please check your internet connection and try again later."
 -- Button label to quit application when alert popup shows (only on Android)
 id.exitButtonLabel = "Exit"
 -- Button label to try again when alert popup shows (only on Android)
@@ -151,6 +153,35 @@ id.useProgressView = true
 id.useProgressText = true
 -- If true, a progress view and progress text will be removed when all resources are downloaded
 id.removeDisplayObjectsWhenDone = false
+
+```
+
+##Customization##
+
+You can use your own custom progress and text view's.
+
+```lua
+-------------------------------------------------
+-- SETUP IMAGE DOWNLOADER MODULE
+-- Requires a db connection and a path to your imageDownloader.php
+-------------------------------------------------
+local id = require("imageDownloader")
+id:set(db, "http://citybusvz.comze.com/corona/imageDownloader.php")
+
+-- Custom progress view
+id.progressView  = widget.newProgressView {
+    left = 30,
+    top = display.contentHeight / 2,
+    width = display.contentWidth - 60,
+    isAnimated = true
+}
+
+-- Custom progress text
+id.progressText = display.newText( id.startingDownloadMessage, display.contentWidth / 2, display.contentHeight / 2 - 20, native.systemFont, 14 )
+id.progressText:setFillColor( 0/255, 118/255, 255/255 )
+
+-- Start downloading images
+id:downloadImages()
 ```
 
 And thats it. Feel free to contact me with your suggestions.

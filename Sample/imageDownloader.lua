@@ -50,11 +50,13 @@ id.tableName = "image_downloader_params"
 -- Title of an alert shown when resources info cannot be retrieved
 id.errorConnectingTitle = "Error connecting to server"
 -- Message of an alert shown when resources info cannot be retrieved
-id.errorConnectingMessage = "Cannot connect to resources server. Please check your internet connection and try again later."
+id.errorConnectingMessage = "Cannot connect to resources server. " ..
+							"Please check your internet connection and try again later."
 -- Title of an alert shown when image download fails
 id.errorDownloadingTitle = "Error downloading resources"
 -- Message of an alert shown when image download fails
-id.errorDownloadingMessage = "Failed to download resources from server. Please check your internet connection and try again later."
+id.errorDownloadingMessage = "Failed to download resources from server. " .. 
+							 "Please check your internet connection and try again later."
 -- Button label to quit application when alert popup shows (only on Android)
 id.exitButtonLabel = "Exit"
 -- Button label to try again when alert popup shows (only on Android)
