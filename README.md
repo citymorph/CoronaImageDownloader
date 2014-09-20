@@ -13,9 +13,13 @@ Used for downloading image resources on device based on display.imageSuffix
 
 ###Images###
 
+Create a images folder on your web server and place your image resources there. Devide images into separate subfolders by image suffix, as shown in the image bellow.
+
 ![alt tag](https://raw.githubusercontent.com/promptcode/CoronaImageDownloader/master/Images/ftp.png)
 
 ###imageDownloader.php###
+
+Place the PHP script into the same parent folder where you have created the images folder on your web server.
 
 ```php
 <?php
@@ -51,6 +55,8 @@ else {
 ##Client side##
 
 ###config.lua###
+
+Setup image suffixes in your configuration. Image suffix names must correspont to image subfolders on the web server.
 
 ```lua
 application = {
