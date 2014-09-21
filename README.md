@@ -132,7 +132,9 @@ local facebookButton = widget.newButton{
 localGroup:insert(facebookButton)
 
 --Image
-local bgAll = display.newImageRect( "images/start_meni_background.png", system.DocumentsDirectory, 320, 479 )
+local bgAll = display.newImageRect( 
+	"images/start_meni_background.png", 
+	system.DocumentsDirectory, 320, 479)
 bgAll.x = _W / 2
 bgAll.y = _H / 2
 localGroup:insert(bgAll);
