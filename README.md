@@ -206,4 +206,26 @@ id.progressText:setFillColor( 0/255, 118/255, 255/255 )
 id:downloadImages()
 ```
 
+##Display downloaded images##
+
+Once downloaded, you can display your images from images subfolder in system.DocumentsDirectory.
+
+```lua
+-- Image
+local bgAll = display.newImageRect( "images/start_meni_background.png", system.DocumentsDirectory, 320, 479 )
+bgAll.x = _W / 2
+bgAll.y = _H / 2
+localGroup:insert(bgAll);
+
+-- Button
+local facebookButton = widget.newButton{
+			baseDir = system.DocumentsDirectory,
+			defaultFile = "images/facebook.png",
+			overFile = "images/facebook_active.png",
+			width = 82, 
+			height = 29
+		}
+localGroup:insert(facebookButton)
+```
+
 And thats it. Feel free to contact me with your suggestions.
