@@ -36,11 +36,11 @@ local function main()
 	-- SETUP IMAGE DOWNLOADER MODULE
 	-- Requires a db connection and a path to your imageDownloader.php
 	-------------------------------------------------
-	id:set(db, "http://citybusvz.comze.com/corona/imageDownloader.php", onAllResourcesDownloadComplete, onSingleResourceDownloadComplete)
+	id:set(db, "http://citybusvz.comze.com/corona-test/imageDownloader.php", onAllResourcesDownloadComplete, onSingleResourceDownloadComplete)
 	
 	-- Use reset to delete all resources and start downloading again
 	-- If you remove this line, resources will be downloaded only once, untill they all download sucessfully
-	--id:reset()
+	id:reset()
 
 	-- Start downloading images
 	id:downloadImages()

@@ -56,7 +56,7 @@ else {
 
 ###config.lua###
 
-Setup image suffixes in your configuration. Image suffix names must correspont to image subfolders on the web server.
+Setup image suffixes in your configuration. Image suffix names must correspond to image subfolders on the web server.
 
 ```lua
 application = {
@@ -106,7 +106,7 @@ end
 -- Requires a db connection and a path to your imageDownloader.php
 -------------------------------------------------
 local id = require("imageDownloader")
-id:set(db, "http://citybusvz.comze.com/corona/imageDownloader.php", onAllResourcesDownloadComplete, onSingleResourceDownloadComplete)
+id:set(db, "http://citybusvz.comze.com/corona-test/imageDownloader.php", onAllResourcesDownloadComplete, onSingleResourceDownloadComplete)
 
 -- Use reset to delete all resources and start downloading again
 -- If you remove this line, resources will be downloaded only once, untill they all download sucessfully
@@ -114,6 +114,28 @@ id:reset()
 
 -- Start downloading images
 id:downloadImages()
+```
+
+###scene.lua###
+
+Once all images have been downloaded, display them from images subfolder in system.DocumentsDirectory.
+
+```lua
+-- Button
+local facebookButton = widget.newButton{
+			baseDir = system.DocumentsDirectory,
+			defaultFile = "images/facebook.png",
+			overFile = "images/facebook_active.png",
+			width = 82, 
+			height = 29,
+		}
+localGroup:insert(facebookButton)
+
+--Image
+local bgAll = display.newImageRect( "images/start_meni_background.png", system.DocumentsDirectory, 320, 479 )
+bgAll.x = _W / 2
+bgAll.y = _H / 2
+localGroup:insert(bgAll);
 ```
 
 ##Properties##
@@ -166,7 +188,7 @@ You can use your own custom progress and text view's.
 -- Requires a db connection and a path to your imageDownloader.php
 -------------------------------------------------
 local id = require("imageDownloader")
-id:set(db, "http://citybusvz.comze.com/corona/imageDownloader.php")
+id:set(db, "http://citybusvz.comze.com/corona-test/imageDownloader.php")
 
 -- Custom progress view
 id.progressView  = widget.newProgressView {
